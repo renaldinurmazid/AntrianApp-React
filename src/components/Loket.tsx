@@ -1,35 +1,18 @@
 import nextimg from '../assets/forward-button.png'
 
-export const Loket = () => {
+interface loketProps {
+    loketID: string
+    handleCLick: () => void
+}
+
+export const Loket = (props: loketProps) => {
 return (
-<div className='grid gap-3'>
     <div className='bg-white h-36 border'>
         <div className='bg-blue-900 h-auto p-3 flex justify-between'>
-            <h4 className='font-semibold text-white'>LOKET A</h4>
-            <button><img src={nextimg} alt="" width={30} /></button>
+            <h4 className='font-semibold text-white'>LOKET {props.loketID}</h4>
+            <button onClick={props.handleCLick}><img src={nextimg} alt="" width={30} /></button>
         </div>
-        <div className='h-full py-6'>
-            {/* <p className='font-semibold text-2xl'>B 1234 TY</p> */}
-        </div>
+        
     </div>
-    <div className='bg-white h-36 border'>
-        <div className='bg-blue-900 h-auto p-3 flex justify-between'>
-            <h4 className='font-semibold text-white'>LOKET B</h4>
-            <button><img src={nextimg} alt="" width={30} /></button>
-        </div>
-        <div className='h-full py-6'>
-            <p className='font-semibold text-2xl'>B 1234 TY</p>
-        </div>
-    </div>
-    <div className='bg-white h-36 border'>
-        <div className='bg-blue-900 h-auto p-3 flex justify-between'>
-            <h4 className='font-semibold text-white'>LOKET C</h4>
-            <button><img src={nextimg} alt="" width={30} /></button>
-        </div>
-        <div className='h-full py-6'>
-            <p className='font-semibold text-2xl'>B 1234 TY</p>
-        </div>
-    </div>
-</div>
 )
 }
