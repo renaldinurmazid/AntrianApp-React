@@ -1,16 +1,14 @@
 import close from '../assets/close.png'
 import centang from '../assets/tick.png'
-
-interface Antrian {
-    id: string;
-    typeantrian: string;
-    noantrian: string;
-    noplate: string;
-  }
+import {Antrian} from '../App'
 
 interface ListProps{
     type:  string;
     data: Antrian[];
+    loketID: string;
+    currentAntrian: Antrian | null;
+    handleClose: () => void;
+    handleCentang: () => void;
 }
 
 export const ListData = (props: ListProps) => {
@@ -21,16 +19,16 @@ export const ListData = (props: ListProps) => {
     <div className='bg-blue-900 h-auto p-3 border border-gray-400 flex justify-between '>
         <p className='text-white font-semibold text-left'>TIKET {props.type}</p>
         <div className='flex gap-3'>
-            <button><img src={close} alt="" width={20} /></button>
-            <button><img src={centang} alt="" width={25} /></button>
+            <button onClick={props.handleClose}><img src={close} alt="" width={20} /></button>
+            <button onClick={props.handleCentang}><img src={centang} alt="" width={25} /></button>
         </div>
     </div>
     <div className='bg-blue-900 h-auto py-4 px-10'>
         <div className='flex justify-between items-center'>
-            <p className='text-7xl font-bold text-white'>B2</p>
-            <p className='text-2xl font-semibold text-white'>B 1233 TY</p>
+            <p className='text-5xl font-bold text-white'>{props.currentAntrian?.noantrian}</p>
+            <p className='text-2xl font-semibold text-white'>{props.currentAntrian?.noplate}</p>
         </div>
-        <p className='text-xl mt-2 font-semibold text-white'>MENUJU LOKET B</p>
+        <p className='text-xl mt-2 font-semibold text-white'>MENUJU LOKET {props.loketID}</p>
     </div>
     <div className='grid grid-cols-2'>
         <div className='py-5'>

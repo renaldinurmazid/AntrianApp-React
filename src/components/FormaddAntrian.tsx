@@ -26,7 +26,8 @@ const FormAddAntrian: React.FC = () => {
         await addDoc(antrianCollections, {
             typeantrian: typeAntrian,
             noantrian: noAntrian,
-            noplate: noPlate
+            noplate: noPlate,
+            created_at: new Date(),
         });
         onCloseModal();
         alert("Data Berhasil ditambahkan");
