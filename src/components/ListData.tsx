@@ -24,16 +24,21 @@ export const ListData = (props: ListProps) => {
         </div>
     </div>
     <div className='bg-blue-900 h-auto py-4 px-10'>
-        <div className='flex justify-between items-center'>
+        {props.currentAntrian === null ? 
+        <p className=' text-white text-2xl font-semibold py-3 text-center'>ANTRIAN</p>
+        : <div>
+            <div className='flex justify-between items-center'>
             <p className='text-5xl font-bold text-white'>{props.currentAntrian?.noantrian}</p>
             <p className='text-2xl font-semibold text-white'>{props.currentAntrian?.noplate}</p>
+            </div> 
+            <p className='text-xl mt-2 font-semibold text-white'>MENUJU LOKET {props.loketID}</p>
         </div>
-        <p className='text-xl mt-2 font-semibold text-white'>MENUJU LOKET {props.loketID}</p>
+    }
     </div>
     <div className='grid grid-cols-2'>
         <div className='py-5'>
             {data.map((item) => (
-            <p className='text-2xl font-semibold py-3'>{item.noantrian}</p>
+            <p className='text-2xl font-semibold py-3 text-left px-10'>{item.noantrian}</p>
             ))}
         </div>
         <div className='py-5'>
