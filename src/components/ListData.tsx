@@ -18,10 +18,14 @@ export const ListData = (props: ListProps) => {
     <div className='bg-white border'>
     <div className='bg-blue-900 h-auto p-3 border border-gray-400 flex justify-between '>
         <p className='text-white font-semibold text-left'>TIKET {props.type}</p>
-        <div className='flex gap-3'>
+        {
+            props.currentAntrian !== null ?
+            <div className='flex gap-3'>
             <button onClick={props.handleClose}><img src={close} alt="" width={20} /></button>
             <button onClick={props.handleCentang}><img src={centang} alt="" width={25} /></button>
         </div>
+        : null
+        }
     </div>
     <div className='bg-blue-900 h-auto py-4 px-10'>
         {props.currentAntrian === null ? 
